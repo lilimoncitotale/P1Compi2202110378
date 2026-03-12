@@ -1,0 +1,51 @@
+=== DIAGNÓSTICO ===
+Archivo: test/error_input.go
+Tamaño: 502 bytes
+Iniciando proceso...
+Archivo leído: 502 caracteres
+--- PREPROCESSED INPUT (primeras 1200 chars) ---
+func main() {
+    fmt.Println("=== INICIO PRUEBA ERRORES ===")
+
+    a := 10
+    b := "hola"
+    // Error semántico: suma de int + string
+    c := a + b
+
+    // Error sintáctico: falta la llave del if
+    if a > 5
+        fmt.Println("Falta llave en el if")
+
+    // Error semántico: uso de variable no declarada
+    undeclaredVar = 5
+
+    // Redeclaración/conflicto: usar var después de := (dependiendo de reglas puede causar alerta)
+    var a = 20
+
+    fmt.Println("=== FIN PRUEBA ERRORES ===")
+}
+
+--- FIN PREPROCESSED ---
+Creando InputStream...
+Creando Lexer...
+Creando TokenStream...
+Creando Parser...
+Intentando parsear programa...
+❌ Error durante el parseo: 
+Línea: 11
+Archivo: /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/vendor/antlr/antlr4-php-runtime/src/Error/Exceptions/ParseCancellationException.php
+Trace:
+#0 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/vendor/antlr/antlr4-php-runtime/src/Error/BailErrorStrategy.php(79): Antlr\Antlr4\Runtime\Error\Exceptions\ParseCancellationException::from()
+#1 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/vendor/antlr/antlr4-php-runtime/src/Parser.php(168): Antlr\Antlr4\Runtime\Error\BailErrorStrategy->recoverInline()
+#2 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/generated/GolampiParser.php(940): Antlr\Antlr4\Runtime\Parser->match()
+#3 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/generated/GolampiParser.php(1279): GolampiParser->block()
+#4 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/generated/GolampiParser.php(1012): GolampiParser->ifStmt()
+#5 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/generated/GolampiParser.php(947): GolampiParser->statement()
+#6 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/generated/GolampiParser.php(557): GolampiParser->block()
+#7 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/generated/GolampiParser.php(455): GolampiParser->functionDecl()
+#8 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/generated/GolampiParser.php(420): GolampiParser->declaration()
+#9 /home/lilimon/Documentos/Compiladores 2/C2P1 202110378/run.php(267): GolampiParser->program()
+#10 {main}
+Token actual: fmt (tipo: 59)
+Línea: 11, Posición: 8
+=== FIN DIAGNÓSTICO ===

@@ -1,0 +1,12 @@
+{
+    "name": "lilimon/c2p1-202110378",
+    "authors": [
+        {
+            "name": "lilimoncitotale",
+            "email": "3822209270101@ingenieria.usac.edu.gt"
+        }
+    ],
+    "require": {
+        "antlr/antlr4-php-runtime": "^0.9.1"
+    }
+}

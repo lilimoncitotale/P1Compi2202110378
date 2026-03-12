@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Golampi Interpreter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="toolbar">
+            <button onclick="nuevoArchivo()">Nuevo</button>
+            <button onclick="cargarArchivo()">Cargar</button>
+            <input type="file" id="fileInput" style="display:none">
+            <button onclick="guardarArchivo()">Guardar</button>
+            <button onclick="ejecutar()">Ejecutar</button>
+            <button onclick="limpiarConsola()">Limpiar Consola</button>
+        </div>
+        
+        <div class="main-panel">
+            <textarea id="codigo" placeholder="Escribe tu código Golampi aquí..."></textarea>
+            <div id="consola" class="consola"></div>
+        </div>
+        
+        <div class="report-panel">
+            <button onclick="descargarResultado()">Descargar Resultado</button>
+            <button onclick="descargarErrores()">Descargar Errores</button>
+            <button onclick="descargarTabla()">Descargar Tabla de Símbolos</button>
+            <button onclick="descargarTokens()">Descargar Tokens</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
