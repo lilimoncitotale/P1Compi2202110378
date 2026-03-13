@@ -273,15 +273,15 @@ echo "Intentando parsear programa...\n";
 $tree = null;
 try {
     $tree = $parser->program();
-    echo "✅ Parseo (con recuperación) completado\n";
+    echo "Parseo (con recuperación) completado\n";
 } catch (Exception $e) {
     // Aunque la estrategia por defecto intenta recuperar, el parser puede lanzar
-    echo "⚠️ Excepción durante parseo: " . $e->getMessage() . "\n";
+    echo "Excepción durante parseo: " . $e->getMessage() . "\n";
 }
 
 // Si hubo errores sintácticos, reportarlos y NO ejecutar la interpretación
 if ($syntaxListener->hasErrors()) {
-    echo "❌ Errores sintácticos detectados:\n";
+    echo " Errores sintácticos detectados:\n";
     foreach ($syntaxListener->getErrors() as $err) {
         echo sprintf("Línea: %d, Col: %d, Msg: %s, Offending: %s\n", $err['line'], $err['column'], $err['message'], $err['offending'] ?? '');
     }
@@ -297,7 +297,7 @@ if ($syntaxListener->hasErrors()) {
         // Ejecutar
         echo "Ejecutando programa...\n";
         $interpreter->visit($tree);
-        echo "✅ Ejecución completada\n";
+        echo "Ejecución completada\n";
     }
 }
 
