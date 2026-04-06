@@ -146,7 +146,7 @@ equality
 	;
 
 comparison
-	: addition (('>' | '<' | '>=' | '<=') addition)*
+	: multiplication (('>' | '<' | '>=' | '<=') multiplication)*
 	;
 
 addition

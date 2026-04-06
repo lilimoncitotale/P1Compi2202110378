@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Generated from Golampi.g4 by ANTLR 4.13.1
+ * Generated from grammar/Golampi.g4 by ANTLR 4.13.1
  */
 
 namespace {
@@ -287,7 +287,7 @@ namespace {
 		    52, 26, 0, 380, 381, 7, 2, 0, 0, 381, 383, 3, 52, 26, 0, 382, 380, 
 		    1, 0, 0, 0, 383, 386, 1, 0, 0, 0, 384, 382, 1, 0, 0, 0, 384, 385, 
 		    1, 0, 0, 0, 385, 51, 1, 0, 0, 0, 386, 384, 1, 0, 0, 0, 387, 392, 3, 
-		    54, 27, 0, 388, 389, 7, 3, 0, 0, 389, 391, 3, 54, 27, 0, 390, 388, 
+		    56, 28, 0, 388, 389, 7, 3, 0, 0, 389, 391, 3, 56, 28, 0, 390, 388, 
 		    1, 0, 0, 0, 391, 394, 1, 0, 0, 0, 392, 390, 1, 0, 0, 0, 392, 393, 
 		    1, 0, 0, 0, 393, 53, 1, 0, 0, 0, 394, 392, 1, 0, 0, 0, 395, 400, 3, 
 		    58, 29, 0, 396, 397, 7, 4, 0, 0, 397, 399, 3, 58, 29, 0, 398, 396, 
@@ -1778,7 +1778,7 @@ namespace {
 		    try {
 		        $this->enterOuterAlt($localContext, 1);
 		        $this->setState(387);
-		        $this->addition();
+		        $this->multiplication();
 		        $this->setState(392);
 		        $this->errorHandler->sync($this);
 
@@ -1799,7 +1799,7 @@ namespace {
 		        		$this->consume();
 		        	}
 		        	$this->setState(389);
-		        	$this->addition();
+		        	$this->multiplication();
 		        	$this->setState(394);
 		        	$this->errorHandler->sync($this);
 		        	$_la = $this->input->LA(1);
@@ -1885,27 +1885,32 @@ namespace {
 		        $this->setState(408);
 		        $this->errorHandler->sync($this);
 
-		        $_la = $this->input->LA(1);
-		        while (((($_la) & ~0x3f) === 0 && ((1 << $_la) & 25166848) !== 0)) {
-		        	$this->setState(404);
+		        $alt = $this->getInterpreter()->adaptivePredict($this->input, 45, $this->ctx);
 
-		        	$_la = $this->input->LA(1);
+		        while ($alt !== 2 && $alt !== ATN::INVALID_ALT_NUMBER) {
+		        	if ($alt === 1) {
+		        		$this->setState(404);
 
-		        	if (!(((($_la) & ~0x3f) === 0 && ((1 << $_la) & 25166848) !== 0))) {
-		        	$this->errorHandler->recoverInline($this);
-		        	} else {
-		        		if ($this->input->LA(1) === Token::EOF) {
-		        		    $this->matchedEOF = true;
-		        	    }
+		        		$_la = $this->input->LA(1);
 
-		        		$this->errorHandler->reportMatch($this);
-		        		$this->consume();
+		        		if (!(((($_la) & ~0x3f) === 0 && ((1 << $_la) & 25166848) !== 0))) {
+		        		$this->errorHandler->recoverInline($this);
+		        		} else {
+		        			if ($this->input->LA(1) === Token::EOF) {
+		        			    $this->matchedEOF = true;
+		        		    }
+
+		        			$this->errorHandler->reportMatch($this);
+		        			$this->consume();
+		        		}
+		        		$this->setState(405);
+		        		$this->addition(); 
 		        	}
-		        	$this->setState(405);
-		        	$this->addition();
+
 		        	$this->setState(410);
 		        	$this->errorHandler->sync($this);
-		        	$_la = $this->input->LA(1);
+
+		        	$alt = $this->getInterpreter()->adaptivePredict($this->input, 45, $this->ctx);
 		        }
 		    } catch (RecognitionException $exception) {
 		        $localContext->exception = $exception;
@@ -3532,15 +3537,15 @@ namespace Context {
 	    }
 
 	    /**
-	     * @return array<AdditionContext>|AdditionContext|null
+	     * @return array<MultiplicationContext>|MultiplicationContext|null
 	     */
-	    public function addition(?int $index = null)
+	    public function multiplication(?int $index = null)
 	    {
 	    	if ($index === null) {
-	    		return $this->getTypedRuleContexts(AdditionContext::class);
+	    		return $this->getTypedRuleContexts(MultiplicationContext::class);
 	    	}
 
-	        return $this->getTypedRuleContext(AdditionContext::class, $index);
+	        return $this->getTypedRuleContext(MultiplicationContext::class, $index);
 	    }
 
 		public function accept(ParseTreeVisitor $visitor): mixed
