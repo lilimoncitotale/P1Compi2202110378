@@ -2129,11 +2129,11 @@ class interpreter extends GolampiBaseVisitor
 
     public function visitAddition($ctx)
     {
-        $result = $this->visit($ctx->multiplication(0));
+        $result = $this->visit($ctx->unary(0));
         if ($result === $this->errorSentinel) return $this->errorSentinel;
 
-        for ($i = 1; $i < count($ctx->multiplication()); $i++) {
-            $right = $this->visit($ctx->multiplication($i));
+        for ($i = 1; $i < count($ctx->unary()); $i++) {
+            $right = $this->visit($ctx->unary($i));
             if ($right === $this->errorSentinel) return $this->errorSentinel;
 
             $operator = $ctx->getChild(2 * $i - 1)->getText();
@@ -2239,11 +2239,11 @@ class interpreter extends GolampiBaseVisitor
         // ===========================================
         // CASO NORMAL: Multiplicación (*, /, %)
         // ===========================================
-        $result = $this->visit($ctx->unary(0));
+        $result = $this->visit($ctx->addition(0));
         if ($result === $this->errorSentinel) return $this->errorSentinel;
 
-        for ($i = 1; $i < count($ctx->unary()); $i++) {
-            $right = $this->visit($ctx->unary($i));
+        for ($i = 1; $i < count($ctx->addition()); $i++) {
+            $right = $this->visit($ctx->addition($i));
             if ($right === $this->errorSentinel) return $this->errorSentinel;
 
             $operator = $ctx->getChild(2 * $i - 1)->getText();

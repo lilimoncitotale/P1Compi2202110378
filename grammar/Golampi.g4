@@ -150,11 +150,11 @@ comparison
 	;
 
 addition
-	: multiplication (('+' | '-') multiplication)*
+	: unary (('+' | '-') unary)*
 	;
 
 multiplication
-	: unary (('*' | '/' | '%') unary)*
+	: addition (('*' | '/' | '%') addition)*
 	;
 
 unary
